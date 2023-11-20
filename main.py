@@ -10,7 +10,7 @@ load_dotenv()
 bot_token = os.getenv('DISCORD_TOKEN')
 
 if bot_token is None:
-    print("Der Discord Token wurde nicht gefunden. Stelle sicher, dass die Umgebungsvariable gesetzt ist.")
+    print("Token not found. Please Make sure the environmental variables are set correctly.")
 else:
     intents = discord.Intents.all()
     intents.message_content = True
@@ -25,7 +25,7 @@ else:
 
     @bot.command()
     async def sneek(ctx):
-        sneek_preview = "Hallo"
+        sneek_preview = ""
         url = 'https://www.sneak-kino.de/sneak-prognose/'
         response = requests.get(url)
 
