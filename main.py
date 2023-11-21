@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import re
+import functions as f
 import requests
 import discord
 import os
@@ -29,20 +29,9 @@ else:
     async def on_ready():
         print(f'Bot is online and connected to Discord as {bot.user.name}')
 
-    @bot.event
-    async def on_message(message):
-        if message.author == bot.user:
-            return
-
-        keyword = 'nob'
-        regex_keyword = re.compile(rf'{"".join(f"({c}|{c.upper()})?" for c in keyword)}', re.IGNORECASE)
-        if regex_keyword.search(message.content):
-            if message.author.name.lower() == steve:
-                await message.channel.send('Selber Noob Steve!')    # jk bro
-
-
-    @bot.command()
+    @bot.command(name='sneek')
     async def sneek(ctx):
+        print("test")
         sneek_preview = ""
         url = 'https://www.sneak-kino.de/sneak-prognose/'
         response = requests.get(url)
@@ -86,7 +75,7 @@ else:
                             "inline": True
                         },
                         {
-                            "name": "Mittlere Wahrscheinlichkeit",
+                            "name": "Mittle Wahrscheinlichkeit",
                             "value": f'{sub_sneek[1]}',
                             "inline": False
                         },
@@ -106,7 +95,22 @@ else:
         if response.status_code == 204:
             print('posted new sneek preview')
         else:
+            print("Test")
             print(response.status_code)
 
 
     bot.run(bot_token)
+
+    @bot.event
+    async def on_message(message):
+        if message.author == bot.user:
+            return
+
+        if f.ist_noob(message.content):
+            print('keyword erkannt')
+            if message.author.name.lower() == steve:
+                await message.channel.send('Selber Noob Steve!')
+            else:
+                print('aber nutzer ist nicht Steve!')
+        else:
+            print('kein keyword erkannt')
