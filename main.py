@@ -31,7 +31,7 @@ else:
             return
 
         easteregg = 'nob'
-        regex_keyword = re.compile(rf'{"".join(f"({c}|{c.upper()})?" for c in keyword)}', re.IGNORECASE)
+        regex_keyword = re.compile(rf'{"".join(f"({c}|{c.upper()})?" for c in easteregg)}', re.IGNORECASE)
         if regex_keyword.search(message.content):
             print(f'keyword {easteregg} detected')
             if message.author.name.lower() == steve:
