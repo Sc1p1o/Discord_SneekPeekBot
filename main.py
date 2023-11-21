@@ -1,5 +1,6 @@
 from datetime import datetime
 
+import re
 import requests
 import discord
 import os
@@ -11,6 +12,7 @@ load_dotenv()
 
 bot_token = os.getenv('DISCORD_TOKEN')
 webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
+steve = os.getenv('STEVE_ID')
 
 proximity_string = ['Hohe', 'Mittlere', 'Niedrige']
 
@@ -26,6 +28,17 @@ else:
     @bot.event
     async def on_ready():
         print(f'Bot is online and connected to Discord as {bot.user.name}')
+
+    @bot.event
+    async def on_message(message):
+        if message.author == bot.user:
+            return
+
+        keyword = 'nob'
+        regex_keyword = re.compile(rf'{"".join(f"({c}|{c.upper()})?" for c in keyword)}', re.IGNORECASE)
+        if regex_keyword.search(message.content):
+            if message.author.name.lower() == steve:
+                await message.channel.send('Selber Noob Steve!')    # jk bro
 
 
     @bot.command()
