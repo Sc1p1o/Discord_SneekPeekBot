@@ -1,14 +1,12 @@
-from datetime import datetime
-
-import re
-import requests
 import discord
 import os
-from dotenv import load_dotenv
-from discord.ext import commands
-from bs4 import BeautifulSoup
+import re
+import requests
 
-load_dotenv()
+from bs4 import BeautifulSoup
+from datetime import datetime
+from discord.ext import commands
+
 
 bot_token = os.getenv('DISCORD_TOKEN')
 webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
