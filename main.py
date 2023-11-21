@@ -1,20 +1,18 @@
-from datetime import datetime
-
-import functions as f
-import requests
 import discord
 import os
-from dotenv import load_dotenv
-from discord.ext import commands
-from bs4 import BeautifulSoup
+import re
+import requests
 
-load_dotenv()
+import functions as f
+
+from bs4 import BeautifulSoup
+from datetime import datetime
+from discord.ext import commands
+
 
 bot_token = os.getenv('DISCORD_TOKEN')
 webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
 steve = os.getenv('STEVE_ID')
-
-proximity_string = ['Hohe', 'Mittlere', 'Niedrige']
 
 if bot_token is None:
     print("Token not found. Please Make sure the environmental variables are set correctly.")
@@ -31,7 +29,6 @@ else:
 
     @bot.command(name='sneek')
     async def sneek(ctx):
-        print("test")
         sneek_preview = ""
         url = 'https://www.sneak-kino.de/sneak-prognose/'
         response = requests.get(url)
@@ -52,7 +49,7 @@ else:
                         sneek_preview = sneek_preview + movie_string + '&&\n'
                     counter = counter + 1
         else:
-            print(f'Fehler beim Abrufen der Seite. Statuscode: {response.status_code}')
+            print(f'An Error occurred while trying to connect to the website: {response.status_code}')
 
         sneek_preview = sneek_preview.replace('</li><li>', '\n')
         sneek_preview = sneek_preview.replace('<li>', '')
@@ -70,19 +67,19 @@ else:
                     },
                     'fields': [
                         {
-                            "name": "Hohe Wahrscheinlichkeit",
-                            "value": f'{sub_sneek[0]}',
-                            "inline": True
+                            'name': "Hohe Wahrscheinlichkeit",
+                            'value': f'{sub_sneek[0]}',
+                            'inline': True
                         },
                         {
-                            "name": "Mittle Wahrscheinlichkeit",
-                            "value": f'{sub_sneek[1]}',
-                            "inline": False
+                            'name': 'Mittlere Wahrscheinlichkeit',
+                            'value': f'{sub_sneek[1]}',
+                            'inline': False
                         },
                         {
-                            "name": "Niedrige Wahrscheinlichkeit",
-                            "value": f'{sub_sneek[2]}',
-                            "inline": True
+                            'name': 'Niedrige Wahrscheinlichkeit',
+                            'value': f'{sub_sneek[2]}',
+                            'inline': True
                         }
                     ],
                     'timestamp': f'{datetime.now().date()}'
@@ -93,10 +90,9 @@ else:
         response = requests.post(webhook_url, json=webhook_movies)
 
         if response.status_code == 204:
-            print('posted new sneek preview')
+            print('posted new sneek preview successfully via webhook client')
         else:
-            print("Test")
-            print(response.status_code)
+            print(f'An Error occurred while waiting for response of the webhook client:\n{response.status_code}')
 
 
     bot.run(bot_token)
@@ -107,10 +103,9 @@ else:
             return
 
         if f.ist_noob(message.content):
-            print('keyword erkannt')
+            print('keyword detected ... ')
             if message.author.name.lower() == steve:
+                print('... and user is Steve! Answering Steve...')
                 await message.channel.send('Selber Noob Steve!')
             else:
-                print('aber nutzer ist nicht Steve!')
-        else:
-            print('kein keyword erkannt')
+                print('...but user is not Steve!')
