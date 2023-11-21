@@ -30,11 +30,15 @@ else:
         if message.author == bot.user:
             return
 
-        keyword = 'nob'
+        easteregg = 'nob'
         regex_keyword = re.compile(rf'{"".join(f"({c}|{c.upper()})?" for c in keyword)}', re.IGNORECASE)
         if regex_keyword.search(message.content):
+            print(f'keyword {easteregg} detected')
             if message.author.name.lower() == steve:
+                print('responding to steve in chat')
                 await message.channel.send('Selber Noob Steve!')    # jk bro
+            else:
+                print('but user is not steve, keyword ignored')
 
     @bot.command()
     async def sneek(ctx):
@@ -76,19 +80,19 @@ else:
                     },
                     'fields': [
                         {
-                            "name": "Hohe Wahrscheinlichkeit",
-                            "value": f'{sub_sneek[0]}',
-                            "inline": True
+                            'name': "Hohe Wahrscheinlichkeit",
+                            'value': f'{sub_sneek[0]}',
+                            'inline': True
                         },
                         {
-                            "name": "Mittlere Wahrscheinlichkeit",
-                            "value": f'{sub_sneek[1]}',
-                            "inline": False
+                            'name': 'Mittlere Wahrscheinlichkeit',
+                            'value': f'{sub_sneek[1]}',
+                            'inline': False
                         },
                         {
-                            "name": "Niedrige Wahrscheinlichkeit",
-                            "value": f'{sub_sneek[2]}',
-                            "inline": True
+                            'name': 'Niedrige Wahrscheinlichkeit',
+                            'value': f'{sub_sneek[2]}',
+                            'inline': True
                         }
                     ],
                     'timestamp': f'{datetime.now().date()}'
@@ -99,9 +103,9 @@ else:
         response = requests.post(webhook_url, json=webhook_movies)
 
         if response.status_code == 204:
-            print('posted new sneek preview')
+            print('posted new sneek preview successfully via webhook client')
         else:
-            print(response.status_code)
+            print(f'An Error occurred while waiting for response of the webhook client:\n{response.status_code}')
 
 
     bot.run(bot_token)
