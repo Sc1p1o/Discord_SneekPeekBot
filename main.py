@@ -36,7 +36,6 @@ else:
             if message.author.name.lower() == steve:
                 await message.channel.send('Selber Noob Steve!')    # jk bro
 
-
     @bot.command()
     async def sneek(ctx):
         sneek_preview = ""
