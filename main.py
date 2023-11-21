@@ -1,6 +1,5 @@
 import discord
 import os
-import re
 import requests
 
 import functions as f
@@ -26,6 +25,20 @@ else:
     @bot.event
     async def on_ready():
         print(f'Bot is online and connected to Discord as {bot.user.name}')
+
+    @bot.event
+    async def on_message(message):
+        if message.author == bot.user:
+            return
+
+        if f.ist_noob(message.content):
+            print('keyword detected ... ')
+            if message.author.name.lower() == steve:
+                print('... and user is Steve! Answering Steve...')
+                await message.channel.send('Selber Noob Steve!')
+            else:
+                print('...but user is not Steve!')
+        await bot.process_commands(message)
 
     @bot.command(name='sneek')
     async def sneek(ctx):
@@ -94,18 +107,4 @@ else:
         else:
             print(f'An Error occurred while waiting for response of the webhook client:\n{response.status_code}')
 
-
     bot.run(bot_token)
-
-    @bot.event
-    async def on_message(message):
-        if message.author == bot.user:
-            return
-
-        if f.ist_noob(message.content):
-            print('keyword detected ... ')
-            if message.author.name.lower() == steve:
-                print('... and user is Steve! Answering Steve...')
-                await message.channel.send('Selber Noob Steve!')
-            else:
-                print('...but user is not Steve!')
