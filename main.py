@@ -14,8 +14,6 @@ bot_token = os.getenv('DISCORD_TOKEN')
 webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
 steve = os.getenv('STEVE_ID')
 
-proximity_string = ['Hohe', 'Mittlere', 'Niedrige']
-
 if bot_token is None:
     print("Token not found. Please Make sure the environmental variables are set correctly.")
 else:
