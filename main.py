@@ -95,7 +95,7 @@ else:
                             'inline': True
                         }
                     ],
-                    'timestamp': f'{datetime.now().date()}'
+                    'timestamp': f'{datetime.now()}'
                 }
             ]
         }
