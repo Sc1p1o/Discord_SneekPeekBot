@@ -1,6 +1,7 @@
 import discord
 import os
 import requests
+import asyncio
 
 import functions as f
 
@@ -8,7 +9,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from discord.ext import commands
 
-
+SNEEK_CHANNEL_ID = 1175914936082382913
 bot_token = os.getenv('DISCORD_TOKEN')
 webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
 steve = os.getenv('STEVE_ID')
@@ -17,14 +18,14 @@ if bot_token is None:
     print("Token not found. Please Make sure the environmental variables are set correctly.")
 else:
     intents = discord.Intents.all()
-    intents.message_content = True
 
-    bot = commands.Bot(command_prefix='!', intents=intents)
+    bot = commands.Bot(command_prefix=commands.when_mentioned_or('!'), intents=intents)
 
 
     @bot.event
     async def on_ready():
         print(f'Bot is online and connected to Discord as {bot.user.name}')
+
 
     @bot.event
     async def on_message(message):
@@ -40,8 +41,25 @@ else:
                 print('...but user is not Steve!')
         await bot.process_commands(message)
 
-    @bot.command(name='sneek')
-    async def sneek(ctx):
+
+    @bot.command(name='suggest')
+    async def suggest(ctx, *args):
+        movie_title: str = ' '.join(args)
+
+        embed = discord.Embed(title=f"Informationen zu {movie_title}", color=0x00ff00)
+
+        movie_info = f.get_movie_info(movie_title)
+
+        embed.add_field(name="IMDb Wertung", value=movie_info['imdb_rating'], inline=False)
+        embed.add_field(name="Trailer", value=movie_info['trailer_url'], inline=False)
+
+        await ctx.send(embed=embed)
+
+
+    @bot.hybrid_command(name='peek')
+    async def sneek(ctx: commands.Context):
+
+        target_channel = bot.get_channel(SNEEK_CHANNEL_ID)
         sneek_preview = ""
         url = 'https://www.sneak-kino.de/sneak-prognose/'
         response = requests.get(url)
@@ -70,41 +88,22 @@ else:
 
         sub_sneek = sneek_preview.split('&&')
 
-        webhook_movies = {
-            'embeds': [
-                {
-                    'title': f'Aktuelle Sneek Peek Vorhersage',
-                    'color': 16711680,
-                    'footer': {
-                        'text': f'Stand'
-                    },
-                    'fields': [
-                        {
-                            'name': "Hohe Wahrscheinlichkeit",
-                            'value': f'{sub_sneek[0]}',
-                            'inline': True
-                        },
-                        {
-                            'name': 'Mittlere Wahrscheinlichkeit',
-                            'value': f'{sub_sneek[1]}',
-                            'inline': False
-                        },
-                        {
-                            'name': 'Niedrige Wahrscheinlichkeit',
-                            'value': f'{sub_sneek[2]}',
-                            'inline': True
-                        }
-                    ],
-                    'timestamp': f'{datetime.now()}'
-                }
-            ]
-        }
+        embed = discord.Embed(title='Aktuelle Sneek Peek Vorhersage', color=0x00ff00)
+        embed.add_field(name='Hohe Wahrscheinlichkeit', value=sub_sneek[0], inline=True)
+        embed.add_field(name='Mittlere Wahrscheinlichkeit', value=sub_sneek[1], inline=False)
+        embed.add_field(name='Niedrige Wahrscheinlichkeit', value=sub_sneek[2], inline=True)
+        embed.set_footer(text='Stand: ')
+        embed.timestamp = datetime.now()
 
-        response = requests.post(webhook_url, json=webhook_movies)
-
-        if response.status_code == 204:
-            print('posted new sneek preview successfully via webhook client')
+        if target_channel:
+            # Sende die Antwort nur im Zielkanal
+            await target_channel.send(embed=embed)
         else:
-            print(f'An Error occurred while waiting for response of the webhook client:\n{response.status_code}')
+            # Falls der Zielkanal nicht gefunden wurde
+            print("Could not find Channel with saved Channel-ID")
+            await ctx.send(embed=embed)
+
+
+
 
     bot.run(bot_token)
