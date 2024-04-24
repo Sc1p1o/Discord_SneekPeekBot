@@ -1,0 +1,96 @@
+2024-04-24 01:53:25,940:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:16:09,073:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:19:56,903:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:24:01,644:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:33:11,237:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:35:04,419:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:37:26,832:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:37:36,570:ERROR:discord.ext.commands.bot: Ignoring exception in command add
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\cogs_example.py", line 19, in add
+    await ctx.send(TestFlags.left + TestFlags.right)
+                   ^^^^^^^^^^^^^^
+AttributeError: type object 'TestFlags' has no attribute 'left'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: type object 'TestFlags' has no attribute 'left'
+2024-04-24 02:38:55,892:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:39:02,636:ERROR:discord.ext.commands.bot: Ignoring exception in command add
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\hybrid.py", line 531, in _parse_arguments
+    return await super()._parse_arguments(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: left is a required argument that is missing.
+2024-04-24 02:39:38,744:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:40:07,634:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:40:11,072:ERROR:discord.ext.commands.bot: Ignoring exception in command add
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\hybrid.py", line 531, in _parse_arguments
+    return await super()._parse_arguments(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: left is a required argument that is missing.
+2024-04-24 02:42:13,494:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:47:13,206:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:47:16,165:ERROR:discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\main.py", line 65, in on_ready
+    await bot.add_cog(cogs.SneekCommands(bot))
+                      ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cogs' has no attribute 'SneekCommands'
+2024-04-24 02:47:22,098:ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "add" is not found
+2024-04-24 02:49:34,810:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:49:37,710:ERROR:discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\main.py", line 65, in on_ready
+    await bot.add_cog(sneek_commands.SneekCog(bot))
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cogs.sneek_commands' has no attribute 'SneekCog'
+2024-04-24 02:50:05,159:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:50:08,051:ERROR:discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\main.py", line 65, in on_ready
+    await bot.add_cog(sneek_commands.SneekCog(bot))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SneekCog.__init__() takes 1 positional argument but 2 were given
+2024-04-24 02:50:38,252:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported

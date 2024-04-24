@@ -1,0 +1,155 @@
+loading cogs...
+... finished
+2024-04-24 01:53:25,940:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 01:53:25,941:INFO:discord.client: logging in using static token
+2024-04-24 01:53:27,059:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: efc65ed9c451980d885c560e23cd39d2).
+2024-04-24 01:53:29,077:INFO:discord: loading cogs...
+2024-04-24 01:53:29,078:INFO:discord: ... finished
+2024-04-24 02:16:09,073:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:16:09,075:INFO:discord.client: logging in using static token
+2024-04-24 02:16:09,995:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: c0cf3e37a43fbd6e18afe22b458b9d1f).
+2024-04-24 02:16:12,009:INFO:discord: loading cogs...
+2024-04-24 02:16:12,009:INFO:discord: ... finished
+2024-04-24 02:19:56,903:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:19:56,904:INFO:discord.client: logging in using static token
+2024-04-24 02:19:57,838:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: d49c36eef852b5057e4de68fff49edbd).
+2024-04-24 02:19:59,943:INFO:discord: loading cogs...
+2024-04-24 02:19:59,943:INFO:discord: ... finished
+2024-04-24 02:24:01,644:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:24:01,646:INFO:discord.client: logging in using static token
+2024-04-24 02:24:02,687:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 3ca4e6932414f51be4bbee48b5653b90).
+2024-04-24 02:24:04,702:INFO:discord: loading cogs...
+2024-04-24 02:24:04,702:INFO:discord: ... finished
+2024-04-24 02:33:11,237:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:33:11,240:INFO:discord.client: logging in using static token
+2024-04-24 02:33:12,299:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: fe078b5e18f2b7b653a9feb6d4b772a5).
+2024-04-24 02:33:14,323:INFO:discord: loading cogs...
+2024-04-24 02:33:14,323:INFO:discord: ... finished
+2024-04-24 02:35:04,419:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:35:04,421:INFO:discord.client: logging in using static token
+2024-04-24 02:35:05,290:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 0720c67f8d7b58719027efb8fc905f4f).
+2024-04-24 02:35:07,305:INFO:discord: loading cogs...
+2024-04-24 02:35:07,306:INFO:discord: ... finished
+2024-04-24 02:37:26,832:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:37:26,834:INFO:discord.client: logging in using static token
+2024-04-24 02:37:27,733:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: f6d91d9775daf3490e27844d033099c7).
+2024-04-24 02:37:29,745:INFO:discord: loading cogs...
+2024-04-24 02:37:29,745:INFO:discord: ... finished
+2024-04-24 02:37:36,570:ERROR:discord.ext.commands.bot: Ignoring exception in command add
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\cogs_example.py", line 19, in add
+    await ctx.send(TestFlags.left + TestFlags.right)
+                   ^^^^^^^^^^^^^^
+AttributeError: type object 'TestFlags' has no attribute 'left'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: type object 'TestFlags' has no attribute 'left'
+2024-04-24 02:38:55,892:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:38:55,893:INFO:discord.client: logging in using static token
+2024-04-24 02:38:56,783:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 15e01f515f5dcbf7df63fcfa6565a11a).
+2024-04-24 02:38:58,795:INFO:discord: loading cogs...
+2024-04-24 02:38:58,795:INFO:discord: ... finished
+2024-04-24 02:39:02,636:ERROR:discord.ext.commands.bot: Ignoring exception in command add
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\hybrid.py", line 531, in _parse_arguments
+    return await super()._parse_arguments(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: left is a required argument that is missing.
+2024-04-24 02:39:38,744:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:39:38,746:INFO:discord.client: logging in using static token
+2024-04-24 02:39:39,595:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 531cca2cc4914335ad7168811c07645b).
+2024-04-24 02:39:41,610:INFO:discord: loading cogs...
+2024-04-24 02:39:41,610:INFO:discord: ... finished
+2024-04-24 02:40:07,634:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:40:07,635:INFO:discord.client: logging in using static token
+2024-04-24 02:40:08,652:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 6075bc7f5ab58dbe288739d3fda62d4e).
+2024-04-24 02:40:10,685:INFO:discord: loading cogs...
+2024-04-24 02:40:10,685:INFO:discord: ... finished
+2024-04-24 02:40:11,072:ERROR:discord.ext.commands.bot: Ignoring exception in command add
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\hybrid.py", line 531, in _parse_arguments
+    return await super()._parse_arguments(ctx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: left is a required argument that is missing.
+2024-04-24 02:42:13,494:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:42:13,495:INFO:discord.client: logging in using static token
+2024-04-24 02:42:14,395:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 0e40360796ba37fc4de0edd2c810475a).
+2024-04-24 02:42:16,397:INFO:discord: loading cogs...
+2024-04-24 02:42:16,397:INFO:discord: ... finished
+2024-04-24 02:47:13,206:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:47:13,207:INFO:discord.client: logging in using static token
+2024-04-24 02:47:14,158:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: e7410e66c2927c21cace41f852f7be04).
+2024-04-24 02:47:16,165:INFO:discord: loading cogs...
+2024-04-24 02:47:16,165:ERROR:discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\main.py", line 65, in on_ready
+    await bot.add_cog(cogs.SneekCommands(bot))
+                      ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cogs' has no attribute 'SneekCommands'
+2024-04-24 02:47:22,098:ERROR:discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "add" is not found
+2024-04-24 02:49:34,810:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:49:34,811:INFO:discord.client: logging in using static token
+2024-04-24 02:49:35,697:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 3c4efee80ffd47045cd1b01f5ef83a23).
+2024-04-24 02:49:37,710:INFO:discord: loading cogs...
+2024-04-24 02:49:37,710:ERROR:discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\main.py", line 65, in on_ready
+    await bot.add_cog(sneek_commands.SneekCog(bot))
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'cogs.sneek_commands' has no attribute 'SneekCog'
+2024-04-24 02:50:05,159:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:50:05,161:INFO:discord.client: logging in using static token
+2024-04-24 02:50:06,041:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 6f9b4ed5a0b46470a2c2cfa56c949776).
+2024-04-24 02:50:08,051:INFO:discord: loading cogs...
+2024-04-24 02:50:08,051:ERROR:discord.client: Ignoring exception in on_ready
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\main.py", line 65, in on_ready
+    await bot.add_cog(sneek_commands.SneekCog(bot))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SneekCog.__init__() takes 1 positional argument but 2 were given
+2024-04-24 02:50:38,252:WARNING:discord.client: PyNaCl is not installed, voice will NOT be supported
+2024-04-24 02:50:38,254:INFO:discord.client: logging in using static token
+2024-04-24 02:50:39,190:INFO:discord.gateway: Shard ID None has connected to Gateway (Session ID: 68088a901b3330e5f2bc6dcc8e193bcd).
+2024-04-24 02:50:41,202:INFO:discord: loading cogs...
+2024-04-24 02:50:41,202:INFO:discord: ... finished
