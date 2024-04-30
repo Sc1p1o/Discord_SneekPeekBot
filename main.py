@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import os
 
 from cogs import cogs_example, sneek_commands
+from sneekbot import SneekBot
 
 # create logger and set up logging handler to log data in different files depending on log level
 logging.basicConfig(level=logging.DEBUG)  # Setze die unterste Stufe für das Logging
@@ -42,29 +43,12 @@ logger.addHandler(warning_handler)
 logger.addHandler(error_handler)
 logger.addHandler(critical_handler)
 
-#load data from .env
-load_dotenv()
-BOT_TOKEN = os.getenv('BOT_TOKEN')
-
-# create bot instance and setup intents
 intents = discord.Intents.all()
 intents.members = True
 intents.message_content = True
 intents.reactions = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
-
-@bot.event
-async def on_ready():
-    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
-    print('------')
-
-    # ladet die Cogs/Erweiterungen
-    logger.info("loading cogs...")
-    await bot.add_cog(cogs_example.ExampleCog(bot))
-    await bot.add_cog(sneek_commands.SneekCog(bot))
-    logger.info("... finished")
-
+bot = SneekBot(command_prefix="!",intents=intents, sneek_logger=logger)
 
 # startet den Bot
-bot.run(BOT_TOKEN)
+bot.run(bot.BOT_TOKEN)
