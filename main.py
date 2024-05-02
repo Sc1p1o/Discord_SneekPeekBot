@@ -1,110 +1,47 @@
 import discord
-import os
-import requests
+import logging.handlers
 
-import functions as f
+from sneekbot import SneekBot
 
-from bs4 import BeautifulSoup
-from datetime import datetime
-from discord.ext import commands
+# create logger and set up logging handler to log data in different files depending on log level
+logging.basicConfig(level=logging.DEBUG)  # Setze die unterste Stufe für das Logging
 
+formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s')
 
-bot_token = os.getenv('DISCORD_TOKEN')
-webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
-steve = os.getenv('STEVE_ID')
+debug_handler = logging.FileHandler('logs/debug.log')
+debug_handler.setLevel(logging.DEBUG)
+debug_handler.setFormatter(formatter)
 
-if bot_token is None:
-    print("Token not found. Please Make sure the environmental variables are set correctly.")
-else:
-    intents = discord.Intents.all()
-    intents.message_content = True
+info_handler = logging.FileHandler('logs/info.log')
+info_handler.setLevel(logging.INFO)
+info_handler.setFormatter(formatter)
 
-    bot = commands.Bot(command_prefix='!', intents=intents)
+warning_handler = logging.FileHandler('logs/warning.log')
+warning_handler.setLevel(logging.WARNING)
+warning_handler.setFormatter(formatter)
 
+error_handler = logging.FileHandler('logs/error.log')
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(formatter)
 
-    @bot.event
-    async def on_ready():
-        print(f'Bot is online and connected to Discord as {bot.user.name}')
+critical_handler = logging.FileHandler('logs/critical.log')
+critical_handler.setLevel(logging.CRITICAL)
+critical_handler.setFormatter(formatter)
 
-    @bot.event
-    async def on_message(message):
-        if message.author == bot.user:
-            return
+logger = logging.getLogger('discord')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(debug_handler)
+logger.addHandler(info_handler)
+logger.addHandler(warning_handler)
+logger.addHandler(error_handler)
+logger.addHandler(critical_handler)
 
-        if f.ist_noob(message.content):
-            print('keyword detected ... ')
-            if message.author.name.lower() == steve:
-                print('... and user is Steve! Answering Steve...')
-                await message.channel.send('Selber Noob Steve!')
-            else:
-                print('...but user is not Steve!')
-        await bot.process_commands(message)
+intents = discord.Intents.all()
+intents.members = True
+intents.message_content = True
+intents.reactions = True
 
-    @bot.command(name='sneek')
-    async def sneek(ctx):
-        sneek_preview = ""
-        url = 'https://www.sneak-kino.de/sneak-prognose/'
-        response = requests.get(url)
+bot = SneekBot(command_prefix="!",intents=intents, sneek_logger=logger)
 
-        if response.status_code == 200:
-            html_content = response.content
-            soup = BeautifulSoup(html_content, 'html.parser')
-            article = soup.find_all('article')
-            counter = 0
-
-            for ul_object in article:
-                list_objects = ul_object.find_all('ul')
-
-                for movie_list in list_objects:
-                    if 1 <= counter <= 3:
-                        movie = movie_list.find_all('li')
-                        movie_string = ''.join(map(str, movie))
-                        sneek_preview = sneek_preview + movie_string + '&&\n'
-                    counter = counter + 1
-        else:
-            print(f'An Error occurred while trying to connect to the website: {response.status_code}')
-
-        sneek_preview = sneek_preview.replace('</li><li>', '\n')
-        sneek_preview = sneek_preview.replace('<li>', '')
-        sneek_preview = sneek_preview.replace('</li>', '')
-
-        sub_sneek = sneek_preview.split('&&')
-
-        webhook_movies = {
-            'embeds': [
-                {
-                    'title': f'Aktuelle Sneek Peek Vorhersage',
-                    'color': 16711680,
-                    'footer': {
-                        'text': f'Stand'
-                    },
-                    'fields': [
-                        {
-                            'name': "Hohe Wahrscheinlichkeit",
-                            'value': f'{sub_sneek[0]}',
-                            'inline': True
-                        },
-                        {
-                            'name': 'Mittlere Wahrscheinlichkeit',
-                            'value': f'{sub_sneek[1]}',
-                            'inline': False
-                        },
-                        {
-                            'name': 'Niedrige Wahrscheinlichkeit',
-                            'value': f'{sub_sneek[2]}',
-                            'inline': True
-                        }
-                    ],
-                    'timestamp': f'{datetime.now()}'
-                }
-            ]
-        }
-
-        response = requests.post(webhook_url, json=webhook_movies)
-
-        if response.status_code == 204:
-            print('posted new sneek preview successfully via webhook client')
-        else:
-            print(f'An Error occurred while waiting for response of the webhook client:\n{response.status_code}')
-
-    bot.run(bot_token)
+# startet den Bot
+bot.run(bot.BOT_TOKEN)
