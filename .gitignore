@@ -1,1 +1,6 @@
 /.env
+/logs/critical.log
+/logs/debug.log
+/logs/error.log
+/logs/info.log
+/logs/warning.log
