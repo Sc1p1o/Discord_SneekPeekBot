@@ -1,8 +1,3 @@
-from datetime import datetime
-
-import requests
-from bs4 import BeautifulSoup
-from jkunze import imdb
 from jkunze import extract
 
 from discord import Embed

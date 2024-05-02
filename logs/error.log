@@ -647,3 +647,34 @@ Traceback (most recent call last):
   File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
     raise CommandInvokeError(exc) from exc
 discord.ext.commands.errors.CommandInvokeError: Command raised an exception: IndexError: list index out of range
+2024-05-02 00:40:40,737:ERROR:discord.ext.commands.bot: Ignoring exception in command sneek
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\sneek_commands.py", line 25, in sneek
+    movies = extract.scrape_sneak()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\jkunze\extract.py", line 24, in scrape_sneak
+    title = columns[3].a.text.strip()
+            ~~~~~~~^^^
+IndexError: list index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: IndexError: list index out of range
+2024-05-02 00:40:40,738:ERROR:discord.client: Attempting a reconnect in 1.73s
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 659, in connect
+    await self.ws.poll_event()
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\gateway.py", line 646, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
