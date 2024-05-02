@@ -10,5 +10,5 @@ class ExampleCog(commands.Cog):
         await ctx.send('Hello world!')
 
     @commands.hybrid_command()
-    async def add(self, ctx, left: int, right: int = 0):
+    async def add(self, ctx, left: int, right: int):
         await ctx.send(left + right)

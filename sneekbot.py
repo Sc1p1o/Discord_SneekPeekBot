@@ -29,9 +29,14 @@ class SneekBot(commands.Bot):
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')
+        try:
+            synced = await self.tree.sync()
+            print(f"Synced {len(synced)} commands.")
+        except Exception as e:
+            print(e)
 
         # ladet die Cogs/Erweiterungen
         self.logger.info("loading cogs...")
-        await self.add_cog(cogs_example.ExampleCog(self))
+        #await self.add_cog(cogs_example.ExampleCog(self))
         await self.add_cog(sneek_commands.SneekCog(self))
         self.logger.info("... finished")

@@ -9,14 +9,10 @@ class SneekCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.hybrid_command()
-    async def test(self, ctx):
-        await ctx.send('test')
-
     @commands.hybrid_command(name='sneek', description='Returns the Sneak Preview Table\n'
                                                        'sort = not implemented yet, movies are sorted by how likely'
                                                        ' they are to be played.')
-    async def sneek(self, ctx, sort='chance'):
+    async def sneek(self, ctx):
         movies = extract.scrape_sneak()
 
         sneek_table = Embed(title="Sneak Peak Preview",

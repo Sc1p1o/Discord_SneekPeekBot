@@ -678,3 +678,147 @@ Traceback (most recent call last):
   File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\gateway.py", line 646, in poll_event
     raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
 discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+2024-05-02 19:35:17,001:ERROR:discord.ext.commands.bot: Ignoring exception in command sneek
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\sneek_commands.py", line 20, in sneek
+    movies = extract.scrape_sneak()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\jkunze\extract.py", line 24, in scrape_sneak
+    title = columns[3].a.text.strip()
+            ~~~~~~~^^^
+IndexError: list index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: IndexError: list index out of range
+2024-05-02 19:36:57,661:ERROR:discord.ext.commands.bot: Ignoring exception in command sneek
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\sneek_commands.py", line 20, in sneek
+    movies = extract.scrape_sneak()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\jkunze\extract.py", line 24, in scrape_sneak
+    title = columns[3].a.text.strip()
+            ~~~~~~~^^^
+IndexError: list index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: IndexError: list index out of range
+2024-05-02 19:44:35,171:ERROR:discord.ext.commands.bot: Ignoring exception in command sneek
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\sneek_commands.py", line 20, in sneek
+    movies = extract.scrape_sneak()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\jkunze\extract.py", line 24, in scrape_sneak
+    title = columns[3].a.text.strip()
+            ~~~~~~~^^^
+IndexError: list index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: IndexError: list index out of range
+2024-05-02 19:45:14,973:ERROR:discord.ext.commands.bot: Ignoring exception in command sneek
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\sneek_commands.py", line 20, in sneek
+    movies = extract.scrape_sneak()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\jkunze\extract.py", line 24, in scrape_sneak
+    title = columns[0].a.text.strip()
+            ~~~~~~~^^^
+IndexError: list index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: IndexError: list index out of range
+2024-05-02 19:46:13,748:ERROR:discord.ext.commands.bot: Ignoring exception in command sneek
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\cogs\sneek_commands.py", line 20, in sneek
+    movies = extract.scrape_sneak()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\Discord_SneekPeekBot\jkunze\extract.py", line 21, in scrape_sneak
+    for row in soup.find_all("tr", class_="lvct2")[1, 5]:
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+TypeError: list indices must be integers or slices, not tuple
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\bot.py", line 1350, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: list indices must be integers or slices, not tuple
+2024-05-02 19:56:11,674:ERROR:discord.client: Attempting a reconnect in 0.09s
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 659, in connect
+    await self.ws.poll_event()
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\gateway.py", line 646, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+2024-05-02 20:12:17,020:ERROR:discord.app_commands.tree: Ignoring exception in command tree
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\app_commands\tree.py", line 1089, in wrapper
+    await self._call(interaction)
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\app_commands\tree.py", line 1221, in _call
+    command, options = self._get_app_command_options(data)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\app_commands\tree.py", line 1125, in _get_app_command_options
+    raise CommandNotFound(name, parents)
+discord.app_commands.errors.CommandNotFound: Application command 'hello' not found
+2024-05-02 20:31:58,977:ERROR:discord.client: Attempting a reconnect in 1.43s
+Traceback (most recent call last):
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\client.py", line 659, in connect
+    await self.ws.poll_event()
+  File "C:\Users\maddi\PycharmProjects\pythonProject\venv\Lib\site-packages\discord\gateway.py", line 646, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000

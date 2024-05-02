@@ -1,13 +1,6 @@
-import sys
-
 import discord
-from discord.ext import commands
 import logging.handlers
 
-from dotenv import load_dotenv
-import os
-
-from cogs import cogs_example, sneek_commands
 from sneekbot import SneekBot
 
 # create logger and set up logging handler to log data in different files depending on log level
